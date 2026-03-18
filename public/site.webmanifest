@@ -1,0 +1,17 @@
+{
+  "name": "Calendar Overview",
+  "short_name": "Calendar",
+  "description": "A week-based calendar overview with holidays and date diff",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ef4444",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -42,6 +42,8 @@ podman stop myapp-dev
 # 5. Produce the distributable single-file build
 podman run --rm -v $(pwd):/app:z -w /app node:22-alpine sh -c "npm run build"
 # → dist/index.html
+# Then
+# cp dist/* docs/
 ```
 
 ## Tech stack

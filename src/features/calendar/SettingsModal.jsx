@@ -1,6 +1,6 @@
 import { useLang } from "./LangContext.jsx";
 
-const REPO_URL = "https://github.com/cabo02/calendar-app";
+const REPO_URL = "https://github.com/callebokedal/calendar-overview";
 
 /**
  * @param {{

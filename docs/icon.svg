@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Rounded red background -->
+  <rect width="100" height="100" rx="18" fill="#ef4444"/>
+
+  <!-- Calendar body (white) -->
+  <rect x="12" y="24" width="76" height="64" rx="8" fill="white"/>
+
+  <!-- Header bar (dark red) -->
+  <rect x="12" y="24" width="76" height="22" rx="8" fill="#b91c1c"/>
+  <rect x="12" y="38" width="76" height="8" fill="#b91c1c"/>
+
+  <!-- Ring hooks -->
+  <rect x="29" y="14" width="10" height="18" rx="5" fill="white"/>
+  <rect x="61" y="14" width="10" height="18" rx="5" fill="white"/>
+
+  <!-- Day grid — row 1 -->
+  <rect x="18" y="53" width="13" height="11" rx="2.5" fill="#fca5a5"/>
+  <rect x="35" y="53" width="13" height="11" rx="2.5" fill="#fca5a5"/>
+  <rect x="52" y="53" width="13" height="11" rx="2.5" fill="#fca5a5"/>
+  <rect x="69" y="53" width="13" height="11" rx="2.5" fill="#fca5a5"/>
+
+  <!-- Day grid — row 2 (one cell highlighted = "today") -->
+  <rect x="18" y="67" width="13" height="11" rx="2.5" fill="#ef4444"/>
+  <rect x="35" y="67" width="13" height="11" rx="2.5" fill="#fca5a5"/>
+  <rect x="52" y="67" width="13" height="11" rx="2.5" fill="#fca5a5"/>
+  <rect x="69" y="67" width="13" height="11" rx="2.5" fill="#fca5a5"/>
+
+  <!-- Day grid — row 3 -->
+  <rect x="18" y="81" width="13" height="7" rx="2.5" fill="#fca5a5"/>
+  <rect x="35" y="81" width="13" height="7" rx="2.5" fill="#fca5a5"/>
+  <rect x="52" y="81" width="13" height="7" rx="2.5" fill="#fca5a5"/>
+</svg>
