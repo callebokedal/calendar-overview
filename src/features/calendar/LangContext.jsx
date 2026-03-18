@@ -25,6 +25,10 @@ export const STRINGS = {
     settingsFontLarge: "Large",
     settingsRepo: "Source code",
     settingsClose: "Close",
+    tipsHeader: "Tips",
+    tipDateDiff: "Click or hover over a day to compare it with the current date",
+    tipCopyDate: "Click a day to copy the date",
+    tipSpecialDays: "Public holidays and special days are highlighted"
   },
   sv: {
     months: [
@@ -50,6 +54,10 @@ export const STRINGS = {
     settingsFontLarge: "Stor",
     settingsRepo: "Källkod",
     settingsClose: "Stäng",
+    tipsHeader: "Tips",
+    tipDateDiff: "Klicka eller hovra över en dag för att jämföra med dagens datum",
+    tipCopyDate: "Klicka på en dag för att kopiera datumet",
+    tipSpecialDays: "Röda dagar och högtidsdagar markeras"
   },
 };
 

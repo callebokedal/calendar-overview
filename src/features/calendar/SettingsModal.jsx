@@ -75,6 +75,18 @@ export function SettingsModal({ lang, fontSize, onLangChange, onFontSizeChange, 
           </div>
         </div>
 
+        {/* Tips */}
+        <div className="mb-5">
+          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">{t.tipsHeader}</p>
+          <div className="flex gap-2 ms-5">
+            <ul className="list-disc">
+                <li>{t.tipDateDiff}</li>
+                <li>{t.tipCopyDate}</li>
+                <li>{t.tipSpecialDays}</li>
+            </ul>
+          </div>
+        </div>
+
         {/* Repo link */}
         <div className="border-t border-gray-100 pt-4">
           <a
