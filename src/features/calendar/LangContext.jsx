@@ -18,6 +18,13 @@ export const STRINGS = {
     titleBack3: "Scroll back 3 months",
     titleForward3: "Scroll forward 3 months",
     titleToday: "Scroll to today",
+    settings: "Settings",
+    settingsLang: "Language",
+    settingsFontSize: "Font size",
+    settingsFontSmall: "Small",
+    settingsFontLarge: "Large",
+    settingsRepo: "Source code",
+    settingsClose: "Close",
   },
   sv: {
     months: [
@@ -36,6 +43,13 @@ export const STRINGS = {
     titleBack3: "Scrolla 3 månader bakåt",
     titleForward3: "Scrolla 3 månader framåt",
     titleToday: "Scrolla till idag",
+    settings: "Inställningar",
+    settingsLang: "Språk",
+    settingsFontSize: "Textstorlek",
+    settingsFontSmall: "Liten",
+    settingsFontLarge: "Stor",
+    settingsRepo: "Källkod",
+    settingsClose: "Stäng",
   },
 };
 
@@ -50,4 +64,11 @@ export const HolidaysContext = createContext(new Map());
 
 export function useHolidays() {
   return useContext(HolidaysContext);
+}
+
+/** 'small' | 'large' */
+export const FontSizeContext = createContext("small");
+
+export function useFontSize() {
+  return useContext(FontSizeContext);
 }

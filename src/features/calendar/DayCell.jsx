@@ -1,4 +1,4 @@
-import { useLang, useHolidays } from "./LangContext.jsx";
+import { useLang, useHolidays, useFontSize } from "./LangContext.jsx";
 import { holidayKey } from "../../utils/holidays.js";
 
 function getCellClass(isToday, isCurrentMonth, isRed, isAmber, isSelected) {
@@ -27,6 +27,7 @@ function getDiffLabel(date, today, t) {
 export function DayCell({ date, currentMonth, today, isSelected, onSelect }) {
   const t = useLang();
   const holidays = useHolidays();
+  const fontSize = useFontSize();
   const isToday = date.toDateString() === today.toDateString();
   const isCurrentMonth = date.getMonth() === currentMonth;
 
@@ -52,7 +53,7 @@ export function DayCell({ date, currentMonth, today, isSelected, onSelect }) {
       onClick={handleClick}
     >
       <span className={`text-xs ${isRed ? "text-red-300" : isAmber ? "text-amber-400" : "text-gray-400"}`}>{dayName}</span>
-      <span className="text-lg font-semibold">{date.getDate()}</span>
+      <span className={`font-semibold ${fontSize === "large" ? "text-2xl" : "text-lg"}`}>{date.getDate()}</span>
       {!isToday && (
         <div className={`pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-1 z-10 whitespace-nowrap rounded bg-gray-800 px-2 py-0.5 text-xs text-white shadow ${isSelected ? "block" : "hidden group-hover:block"}`}>
           {holidayName && <span className={`block ${holiday.type === "notable" ? "text-amber-300" : "text-red-300"}`}>{holidayName}</span>}

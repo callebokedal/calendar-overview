@@ -1,9 +1,10 @@
-import { useRef, useEffect, useState, useMemo, useContext } from "react";
+import { useRef, useEffect, useState, useMemo } from "react";
 import { getMondayOfWeek, getMonthsRange } from "../../utils/calendar.js";
 import { getHolidaysForYear } from "../../utils/holidays.js";
 import { MonthBlock } from "./MonthBlock.jsx";
 import { CalendarFooter } from "./CalendarFooter.jsx";
-import { LangContext, HolidaysContext, useLang } from "./LangContext.jsx";
+import { SettingsModal } from "./SettingsModal.jsx";
+import { LangContext, HolidaysContext, FontSizeContext, useLang } from "./LangContext.jsx";
 
 const MONTHS_BEFORE_INITIAL = 6;
 const MONTHS_AFTER_INITIAL = 13;
@@ -15,24 +16,35 @@ function monthKey(year, month) {
 
 export function CalendarView() {
   const [lang, setLang] = useState(() => localStorage.getItem("lang") ?? "sv");
+  const [fontSize, setFontSize] = useState(() => localStorage.getItem("fontSize") ?? "small");
 
-  function handleToggleLang() {
-    setLang((l) => {
-      const next = l === "sv" ? "en" : "sv";
-      localStorage.setItem("lang", next);
-      return next;
-    });
+  function handleLangChange(next) {
+    setLang(next);
+    localStorage.setItem("lang", next);
+  }
+
+  function handleFontSizeChange(next) {
+    setFontSize(next);
+    localStorage.setItem("fontSize", next);
   }
 
   return (
     <LangContext.Provider value={lang}>
-      <CalendarInner lang={lang} onToggleLang={handleToggleLang} />
+      <FontSizeContext.Provider value={fontSize}>
+        <CalendarInner
+          lang={lang}
+          fontSize={fontSize}
+          onLangChange={handleLangChange}
+          onFontSizeChange={handleFontSizeChange}
+        />
+      </FontSizeContext.Provider>
     </LangContext.Provider>
   );
 }
 
-function CalendarInner({ lang, onToggleLang }) {
+function CalendarInner({ lang, fontSize, onLangChange, onFontSizeChange }) {
   const t = useLang();
+  const [settingsOpen, setSettingsOpen] = useState(false);
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
@@ -107,7 +119,7 @@ function CalendarInner({ lang, onToggleLang }) {
 
   return (
     <HolidaysContext.Provider value={holidays}>
-      <div className="max-w-md mx-auto py-4 px-2 pb-20">
+      <div className={`max-w-md mx-auto py-4 px-2 pb-20 ${fontSize === "large" ? "text-base" : "text-sm"}`}>
         <div className="flex justify-center mb-2">
           <button
             onClick={handleLoadEarlier}
@@ -133,7 +145,7 @@ function CalendarInner({ lang, onToggleLang }) {
         <div className="flex justify-center mt-2">
           <button
             onClick={handleLoadLater}
-            className="px-3 py-0.5 text-xs text-gray-400 hover:text-gray-600 border border-dashed border-gray-300 hover:border-gray-400 rounded-full transition-colors"
+            className="px-3 py-0.5 mb-6 text-xs text-gray-400 hover:text-gray-600 border border-dashed border-gray-300 hover:border-gray-400 rounded-full transition-colors"
           >
             {t.loadLater}
           </button>
@@ -143,10 +155,17 @@ function CalendarInner({ lang, onToggleLang }) {
         onToday={handleToday}
         onBack3={handleBack3}
         onForward3={handleForward3}
-        lang={lang}
-        onToggleLang={onToggleLang}
+        onOpenSettings={() => setSettingsOpen(true)}
       />
-
+      {settingsOpen && (
+        <SettingsModal
+          lang={lang}
+          fontSize={fontSize}
+          onLangChange={onLangChange}
+          onFontSizeChange={onFontSizeChange}
+          onClose={() => setSettingsOpen(false)}
+        />
+      )}
     </HolidaysContext.Provider>
   );
 }
