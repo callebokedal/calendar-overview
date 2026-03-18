@@ -1,0 +1,7 @@
+_private/**
+.git/**
+.env*
+.DS_Store
+node_modules/**
+*.local
+coverage/**
