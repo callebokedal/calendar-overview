@@ -15,6 +15,11 @@ A compact, single-page calendar that gives you a clear week-by-week overview of 
 
 ## Using the built file
 
+Visit
+[https://callebokedal.github.io/calendar-overview/]
+
+or
+
 Download `dist/index.html` and open it in any modern browser. That's it.
 
 ## Building from source
