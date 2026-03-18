@@ -16,7 +16,7 @@ function monthKey(year, month) {
 
 export function CalendarView() {
   const [lang, setLang] = useState(() => localStorage.getItem("lang") ?? "sv");
-  const [fontSize, setFontSize] = useState(() => localStorage.getItem("fontSize") ?? "small");
+  const [fontSize, setFontSize] = useState(() => localStorage.getItem("fontSize") ?? "large");
 
   function handleLangChange(next) {
     setLang(next);
